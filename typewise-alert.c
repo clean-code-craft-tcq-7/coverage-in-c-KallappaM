@@ -42,19 +42,20 @@ void sendToController(BreachType breachType)
 
 void sendToEmail(BreachType breachType) 
 {
+  TempFlags Tempflag;
   const char* recepient = "a.b@c.com";
   if(breachType == TOO_LOW)
   {
     printf("To: %s\n", recepient);
     printf("Hi, the temperature is too low\n");
-    TempFlags->FlagLowTemp = TEMPLOW;
+    Tempflag.FlagLowTemp = TEMPLOW;
   }
 
   if(breachType == TOO_HIGH)
   {
      printf("To: %s\n", recepient);
      printf("Hi, the temperature is too high\n");
-    TempFlags->FlagHighTemp = TEMPHIGH;
+    Tempflag.FlagHighTemp = TEMPHIGH;
   }
   /*switch(breachType) {
     case TOO_LOW:
