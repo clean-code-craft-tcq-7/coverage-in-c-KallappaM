@@ -33,6 +33,8 @@ typedef struct {
 typedef struct {
   int FlagHighTemp;
   int FlagLowTemp;
+  int FlagTypeMail;
+  int FlagTypeController;
 } TempFlags;
 
 void checkAndAlert(
