@@ -3,7 +3,6 @@
 
 int CoolingUpperLimits[MAX_COOLING_TYPE] = {35 , 40, 45};
 void (*AlertTarget_func_ptr[TO_MAX])(BreachType) = {&sendToController, &sendToEmail};
-TempFlags Tempflag = {.FlagHighTemp = TEMPLOW ,.FlagLowTemp = TEMPHIGH,.FlagTypeMail = UNUSED, .FlagTypeController = UNUSED};
 
 BreachType inferBreach(double value, double lowerLimit, double upperLimit) {
   if(value < lowerLimit) {
