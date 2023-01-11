@@ -2,6 +2,8 @@
 
 #define TEMPLOW  0
 #define TEMPHIGH 1
+#define USED   1
+#define UNUSED 0
 
 typedef enum {
   PASSIVE_COOLING,
