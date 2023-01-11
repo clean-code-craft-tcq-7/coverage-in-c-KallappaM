@@ -47,14 +47,14 @@ void sendToEmail(BreachType breachType)
   {
     printf("To: %s\n", recepient);
     printf("Hi, the temperature is too low\n");
-    TempFlags.FlagLowTemp = TEMPLOW;
+    TempFlags->FlagLowTemp = TEMPLOW;
   }
 
   if(breachType == TOO_HIGH)
   {
      printf("To: %s\n", recepient);
      printf("Hi, the temperature is too high\n");
-    TempFlags.FlagHighTemp = TEMPHIGH;
+    TempFlags->FlagHighTemp = TEMPHIGH;
   }
   /*switch(breachType) {
     case TOO_LOW:
