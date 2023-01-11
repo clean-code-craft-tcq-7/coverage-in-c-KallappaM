@@ -1,5 +1,8 @@
 #pragma once
 
+#define TEMPLOW  0
+#define TEMPHIGH 1
+
 typedef enum {
   PASSIVE_COOLING,
   MED_ACTIVE_COOLING,
