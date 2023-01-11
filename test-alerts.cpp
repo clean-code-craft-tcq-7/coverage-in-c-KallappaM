@@ -9,7 +9,7 @@ const char* recipent = "To : a.b@c.com";
 const char* srcHigh = "Hi, the temperature is too high\n";
 const char* srcLow  = "Hi, the temperature is too low\n";
 BatteryCharacter batteryCharTest1,batteryCharTest2;
-TempFlags Tempflags;
+extern TempFlags Tempflag;
 
 
 TEST_CASE("LOW limit value test") {
@@ -57,11 +57,23 @@ TEST_CASE("F2_T6") {
 TEST_CASE("send email alert high") {
 batteryCharTest1.coolingType = PASSIVE_COOLING;
 checkAndAlert(TO_EMAIL,batteryCharTest1,50);
-REQUIRE(Tempflags.FlagHighTemp == TEMPLOW);
+REQUIRE(Tempflag.FlagHighTemp == TEMPHIGH);
  }
 
 TEST_CASE("send email alert low") {
 batteryCharTest2.coolingType = HI_ACTIVE_COOLING;
 checkAndAlert(TO_EMAIL,batteryCharTest2,-10);
-REQUIRE(Tempflags.FlagLowTemp == TEMPLOW);
+REQUIRE(Tempflag.FlagLowTemp == TEMPLOW);
+}
+
+TEST_CASE("send email") {
+batteryCharTest2.coolingType = HI_ACTIVE_COOLING;
+checkAndAlert(TO_EMAIL,batteryCharTest2,-10);
+REQUIRE(Tempflag.FlagTypeMail == USED);
+}
+
+TEST_CASE("send controller") {
+batteryCharTest2.coolingType = HI_ACTIVE_COOLING;
+checkAndAlert(TO_CONTROLLER,batteryCharTest2,-10);
+REQUIRE(Tempflag.FlagTypeController == USED);
 }
