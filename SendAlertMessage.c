@@ -1,6 +1,8 @@
 #include "typewise-alert.h"
 #include <stdio.h>
 
+TempFlags Tempflag = {.FlagHighTemp = TEMPLOW ,.FlagLowTemp = TEMPHIGH,.FlagTypeMail = UNUSED, .FlagTypeController = UNUSED};
+
 void sendToController(BreachType breachType) 
 {
   const unsigned short header = 0xfeed;
